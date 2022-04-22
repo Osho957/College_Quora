@@ -4,23 +4,12 @@ export class Followings extends Component {
     url = localStorage.getItem("url");  
 state={Followings:[],Followers:[]}
 
-    async componentDidMount()
+   async  componentDidMount()
     {
-        const queryParams = new URLSearchParams(window.location.search);
-        var ProfileID = this.props.ProfileID;// '625307a5a2cfe5b3ab418657';//  queryParams.get("ProfileID");
-        console.log('asdasd',ProfileID);
-        var requestOptions = {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' },    
-            //body: JSON.stringify(data)
-        };
-        console.log('http://localhost:5000follows/getMyFollowings/'+ProfileID);
-       var response = await fetch('http://localhost:5000/follows/getMyFollowings/'+ProfileID, requestOptions);
-       
-        var data = await response.json();
-        this.setState({Followings:data});   
-        console.log(data);
-
+      this.forceUpdate();
+        var Followings = await this.props.ProfileID;
+     console.log(Followings);
+this.setState({Followings:Followings});
 
 
 

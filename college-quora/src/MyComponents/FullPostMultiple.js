@@ -139,7 +139,7 @@ Load(){
                         <h4 className="card-title">{Post.PostTitle}</h4>
                         {Post.Category?<p className='text-secondary'> -- {Post.Category}</p>:<></>}
                         <div className='text-center'>
-                        <img id="PostImage" src={"http://localhost:5000/Images/PostImages/"+Post._id+".jpg?t="+new Date()} onError="this.hide()" style={{'maxWidth':'300px'}} />
+                        <img id="PostImage" src={"http://localhost:5000/Images/PostImages/"+Post._id+".jpg?t="+new Date()} onError="this.hide()" style={{"maxHeight": "640px","maxWidth": "420px"}} />
 
                         </div>
                         <p className="card-text">{Post.Description}</p>

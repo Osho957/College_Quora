@@ -150,7 +150,7 @@ export class NewPost extends Component {
                                     <div className="row">
                                         <div className="col text-center" style={{ "opacity": " 0.28" }}>
                                             <img id="PostImage" onChange={(e) => { this.SaveImage(this.files) }} src={this.state.imgSrc} onError={() => this.setImgSrc("assets/img/add_image.png")}
-
+                                                style={{"maxHeight": "640px","maxWidth": "420px"}}
                                             />
                                             {/* <img def src="assets/img/add_image.png" /> */}
                                         </div>

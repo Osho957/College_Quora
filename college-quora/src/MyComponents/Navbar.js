@@ -6,13 +6,16 @@ export class Navbar extends Component {
     state = {
         User: {},
         UserProfileImage: "",
-        ProfileImageSrc: "assets/img/User_New.png"
+        ProfileImageSrc: "assets/img/User_New.png",
+        IsLoggedIn:false
     };
     async componentDidMount() {
         if (localStorage.getItem("User")) {
             await this.setState({ User: JSON.parse(localStorage.getItem("User")) });
             this.setState({ UserProfileImage: "http://localhost:5000/Images/Users/" + this.state.User._id + ".jpg?t=" + new Date() });
+            this.setState({IsLoggedIn:true})
         }
+       
     }
 
     setImgSrc(src) {
@@ -25,7 +28,7 @@ export class Navbar extends Component {
         localStorage.removeItem("User");
         localStorage.removeItem("UserType");
         if (window.location.href != "/login") window.location.href = "/login";
-
+        this.setState({IsLoggedIn:false})
     }
 
 
@@ -39,12 +42,8 @@ export class Navbar extends Component {
                         <div
                             className="collapse navbar-collapse d-xl-flex justify-content-xl-end" id="navcol-1">
                             <ul className="nav navbar-nav">
-                                <li className="nav-item">
-                                    <Link className="nav-link active text-danger" to="/signup" style={{ "padding": "4px" }}><i className="fa fa-user-plus" style={{ "margin-right": "20px", "margin-left": "20px", "font-size": "35px" }}></i></Link>
-                                </li>
-                                <li className="nav-item">
-                                    <Link className="nav-link active text-danger" to="/login" style={{ "padding": "4px" }}><i className="fa fa-sign-in" style={{ "margin-right": "20px", "margin-left": "20px", "font-size": "35px" }}></i></Link>
-                                </li>
+                                {this.state.IsLoggedIn?
+                                <>
                                 <li className="nav-item">
                                     <Link className="nav-link active text-danger" to="/newpost" style={{ "padding": "4px" }}><i className="fa fa-pencil-square" style={{ "margin-right": "20px", "margin-left": "20px", "font-size": "35px" }}></i></Link>
                                 </li>
@@ -63,6 +62,18 @@ export class Navbar extends Component {
                                         </div>
                                     </div>
                                 </li>
+                                </>:<>
+                                <li className="nav-item">
+                                    <Link className="nav-link active text-danger" to="/login" style={{ "padding": "4px" }}><i className="fa fa-sign-in" style={{ "margin-right": "20px", "margin-left": "20px", "font-size": "35px" }}></i></Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link active text-danger" to="/signup" style={{ "padding": "4px" }}><i className="fa fa-user-plus" style={{ "margin-right": "20px", "margin-left": "20px", "font-size": "35px" }}></i></Link>
+                                </li>
+                                </>
+                                
+                            }
+                                
+                                
 
                             </ul>
                         </div>

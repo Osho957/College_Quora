@@ -25,7 +25,7 @@ export class CategoryNavigations extends Component {
                             </tr>
                             <tr>
                                 <td><img className="bg-white border rounded shadow-sm mr-3"  src="assets/img/books.png" style={{"width": "32px"}}/>
-                                <Link onClick={this.forceUpdate} to="/home?Category=Study">Study</Link>
+                                <Link onClick={this.forceUpdate} to="/home?Category=Sports">Sports</Link>
                                 </td>
                             </tr>
                             <tr>

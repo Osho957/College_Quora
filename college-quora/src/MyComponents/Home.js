@@ -71,7 +71,7 @@ export class Home extends Component {
                         </div>
                         <div className="col-auto col-xl-3">
                             <div className="card shadow-sm">
-            <div className="card-header">
+                                <div className="card-header">
                                     <h5 className="text-danger mb-0">Recommended</h5>
                                 </div>
                                 <div className="table-responsive">
